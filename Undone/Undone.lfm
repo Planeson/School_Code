@@ -1,0 +1,199 @@
+object Form1: TForm1
+  Left = 1122
+  Height = 770
+  Top = 108
+  Width = 500
+  Caption = 'Undone'
+  ClientHeight = 750
+  ClientWidth = 500
+  Color = 16756059
+  Constraints.MinHeight = 400
+  Constraints.MinWidth = 400
+  Menu = MainMenu
+  OnChangeBounds = FormChangeBounds
+  OnClose = FormClose
+  OnCreate = FormCreate
+  LCLVersion = '2.0.6.0'
+  object LabelTitle: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 0
+    Height = 85
+    Top = 0
+    Width = 500
+    Align = alTop
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Undone V1.0'
+    Color = 6348640
+    Constraints.MinHeight = 60
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -64
+    Font.Name = 'Sylfaen'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Layout = tlCenter
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object Panel1: TPanel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = LabelTime
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 0
+    Height = 580
+    Top = 170
+    Width = 480
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Right = 20
+    TabOrder = 0
+  end
+  object LabelTime: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = LabelTitle
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 0
+    Height = 85
+    Top = 85
+    Width = 500
+    Align = alTop
+    Alignment = taCenter
+    AutoSize = False
+    Caption = 'Time'
+    Color = 8454143
+    Constraints.MinHeight = 60
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -64
+    Font.Name = 'Sylfaen'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Layout = tlCenter
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object ScrollBar1: TScrollBar
+    AnchorSideTop.Control = Panel1
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Panel1
+    AnchorSideBottom.Side = asrBottom
+    Left = 480
+    Height = 580
+    Top = 170
+    Width = 20
+    Anchors = [akTop, akRight, akBottom]
+    Constraints.MaxWidth = 20
+    Constraints.MinWidth = 20
+    Kind = sbVertical
+    PageSize = 0
+    TabOrder = 1
+    OnChange = ScrollBar1Change
+  end
+  object OpenFile: TOpenDialog
+    Title = 'Open an Undone todo list save file'
+    FileName = 'C:\Users\ckt63\Desktop\CL\Plus9\UndoneSave'
+    InitialDir = 'C:\Users\ckt63\Desktop\CL\Plus9\'
+    left = 16
+    top = 616
+  end
+  object SaveFile: TSaveDialog
+    Title = 'Save Undone todo list file as'
+    left = 64
+    top = 616
+  end
+  object MainMenu: TMainMenu
+    left = 384
+    top = 616
+    object MenuFile: TMenuItem
+      Caption = 'File'
+      object MenuNew: TMenuItem
+        Caption = 'New'
+        object MenuNewFile: TMenuItem
+          Caption = 'New File'
+          ShortCut = 112
+          ShortCutKey2 = 24654
+          OnClick = MenuNewFileClick
+        end
+        object MenuNewItem: TMenuItem
+          Caption = 'New Item'
+          ShortCut = 113
+          ShortCutKey2 = 49230
+          OnClick = MenuNewItemClick
+        end
+      end
+      object MenuOpen: TMenuItem
+        Caption = 'Open'
+        ShortCut = 16463
+        OnClick = ActionOpenExecute
+      end
+      object MenuSave: TMenuItem
+        Caption = 'Save'
+        ShortCut = 16467
+        OnClick = ActionSaveExecute
+      end
+      object MenuQuit: TMenuItem
+        Caption = 'Quit'
+        ShortCut = 16465
+        OnClick = MenuQuitClick
+      end
+    end
+    object MenuHelp: TMenuItem
+      Caption = 'Help'
+      object MenuHelpInfo: TMenuItem
+        Caption = 'Help and info'
+        ShortCut = 16456
+        OnClick = MenuHelpInfoClick
+      end
+      object MenuLicense: TMenuItem
+        Caption = 'License information'
+        ShortCut = 16460
+        OnClick = MenuLicenseClick
+      end
+    end
+    object MenuOptions: TMenuItem
+      Caption = 'Options'
+      object MenuFontSize: TMenuItem
+        Caption = 'Font Size'
+        object MenuFontSmall: TMenuItem
+          Caption = 'Small'
+          ShortCut = 116
+          OnClick = MenuFontSmallClick
+        end
+        object MenuFontMedium: TMenuItem
+          Caption = 'Medium'
+          ShortCut = 117
+          OnClick = MenuFontMediumClick
+        end
+        object MenuFontLarge: TMenuItem
+          Caption = 'Large'
+          ShortCut = 118
+          OnClick = MenuFontLargeClick
+        end
+      end
+    end
+  end
+  object ActionList: TActionList
+    left = 440
+    top = 616
+    object ActionOpen: TAction
+      Caption = 'ActionOpen'
+      OnExecute = ActionOpenExecute
+    end
+    object ActionSave: TAction
+      Caption = 'Action Save'
+      OnExecute = ActionSaveExecute
+    end
+  end
+end
